@@ -4,7 +4,7 @@ DRY-MARTINI-PEG is an extension to the DRY-MARTINI force field for simulating
 Pegylated lipids, alkyl ethoxy surfactants and PEG and PEO polymers.
 It is an implicit water coarse-grained molecular dynamics (CG-MD) force field.
 
-If you want to use this model, please cite [My Doctoral Thesis](ISBN) for the implementation, and [Shape and Phase Transitions in a PEGylated Phospholipid System](https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829) for the model`s application. The base DRY-MARTINI citation is [here] (https://pubs.acs.org/doi/abs/10.1021/ct500477k).
+If you want to use this model, please cite [My Doctoral Thesis](ISBN) for the implementation, and [Shape and Phase Transitions in a PEGylated Phospholipid System](https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829) for the model`s application. The base DRY-MARTINI citation is [here](https://pubs.acs.org/doi/abs/10.1021/ct500477k).
 
 If you spot any bugs or improvements, please  [raise an issue](https://github.com/jsmaatta/dry_martini_peg/issues). You can also add any starting structures etc.
 
@@ -14,13 +14,13 @@ If you want to contribute you can fork this repository and make a pull request f
 # Quick start
 Using this model is really easy, especially if you have any experience with MARTINI models.
 
-##Step 1:
+## Step 1:
 
 ```
 git clone https://github.com/jsmaatta/dry_martini_peg
 ```
 
-##Step 2:
+## Step 2:
 You have to include the following files for your topology:
 
 ```
@@ -33,15 +33,15 @@ You have to include the following files for your topology:
 #include "dppe-peg45.itp"  ; big pegylated lipids have their own itp files
 ```
 
-##Step 3:
+## Step 3:
 
 We used both the standard DRY-MARTINI mdp file for simulations as well as the new
 ```
 newrf.mdp
 ```
-The advantage of the newrf mdp is that one can then use Gromacs GPU acceleration to make simulations much faster.
+The advantage of the newrf.mdp is that one can then use Gromacs GPU acceleration to make simulations much faster.
 
-##Step 4:
+## Step 4:
 We included couple different starting configurations
 ```
 plpeg.gro
@@ -49,7 +49,7 @@ plpeg.gro
 ```
 But also all standard martini PEG configurations should work too. Just remove the MARTINI waters and you're good to go.
 
-Step 5:
+## Step 5:
 Run the energy minimization and the md run itself.
 ```
 gmx grompp -f em.mdp -c conf.gro -p topol.top -o em.tpr
