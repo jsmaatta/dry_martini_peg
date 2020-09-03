@@ -1,0 +1,163 @@
+
+; DRY MARTINI PEG
+
+; Cite this if you are using the PEG or PEO beads, PEGylated lipids or alkyl ethoxy surfactants
+;
+; Shape Diagrams
+; J. Maatta, Doctoral Thesis, ISBN
+;
+;
+
+; Also:
+; L. Viitala, S. Pajari, L. Gentile, J. Maatta, M. Gubitosi, J. Deska, M. Sammalkorpi, U. Olsson and L. Murtomaki
+; Shape and Phase Transitions in a PEGylated Phospholipid System
+; Langmuir 2019, 35, 11, 3999-4010
+; https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829
+;
+
+;;; BONDED PARAMETERS
+
+#define  mb_CPEG  0.41     3000.0 ; PEG bond parameters 3500
+#define  mb_PEG   0.33     4500.0 ; PEG bond parameters 4500
+#define  mb_PEGh  0.33     4000.0 ; PEG bond parameters 4500
+
+; for combined dihedral potential
+; (use this one!)
+;(bond types are harmonic angle 2 maa_PEG, and combined bending-torsion potential 11 mdd_PEG)
+#define  maa_PEG  124     100 ; PEG angle parameters  ; #define  maa_PEG  121.00     100 ; PEG angle parameters b128
+#define  mdd_PEG    8    1.21    -1.85    0.36    0.7601778666  0.0;
+
+; for restricted angle potential
+;(use this only if you have an old version of gromacs that does not support the combined dihedral potential)
+;(bond types are harmonic 2 ma_PEG, restricted 10 mr_PEG and ryckaert bellemans 3 md_PEG)
+#define  ma_PEG   128.00      150 ; PEG angle parameters
+#define  mr_PEG   128.00      100 ; PEG restricted angle parameters   
+#define  md_PEG   -1.82157326       2.91548665     -0.07534        -2.42558002      0.601778666     0.7640199 ; PEG
+
+; the carbon tail parameters are standard DRY MARTINI parameters 
+#define  ma_ccc  180.000    35.0 ; saturated tail (STANDARD DRY MARTINI PARAMETER)
+#define  mb_cc     0.480  1250.0 ; tail (STANDARD DRY MARTINI PARAMETER)
+
+
+;;; CiEj SURFACTANTS
+
+
+; C12E2
+
+[moleculetype]
+;name     exclusions
+C12E2  1
+
+[atoms]
+           1    C1           1   PEG   C1           1   0.0000000    
+           2    C1           1   PEG   C1           2   0.0000000    
+           3    C1           1   PEG   C1           3   0.0000000    
+           4   SPP           1   PEG  SPP           4   0.0000000    
+           5   SPP           1   PEG  SPP           5   0.0000000    
+           6   SPh           1   PEG  SPh           6   0.0000000                                   
+
+[bonds]
+;backbone bonds
+  1   2  1      mb_cc
+  2   3  1      mb_cc
+  3   4  1      mb_CPEG
+  4   5  1      mb_PEG 
+  5   6  1      mb_PEGh
+  
+[angles]
+;i j k   funct   angle   force c.
+  1   2   3  2      ma_ccc
+  2   3   4  2      ma_ccc
+  3   4   5  2      maa_PEG 
+  4   5   6  2      maa_PEG 
+ 
+; C12E6
+
+[moleculetype]
+;name     exclusions
+C12E4  1
+
+[atoms]
+           1    C1           1   PEG   C1           1   0.0000000    
+           2    C1           1   PEG   C1           2   0.0000000    
+           3    C1           1   PEG   C1           3   0.0000000    
+           4   SPP           1   PEG  SPP           4   0.0000000    
+           5   SPP           1   PEG  SPP           5   0.0000000   
+           6   SPP           1   PEG  SPP           6   0.0000000
+           7   SPP           1   PEG  SPP           7   0.0000000    
+           8   SPh           1   PEG  SPh           8   0.0000000  
+                                
+
+[bonds]
+;backbone bonds
+  1   2  1      mb_cc
+  2   3  1      mb_cc
+  3   4  1      mb_CPEG
+  4   5  1      mb_PEG
+  5   6  1      mb_PEG
+  6   7  1      mb_PEG
+  7   8  1      mb_PEGh 
+
+[angles]
+;i j k   funct   angle   force c.
+  1   2   3  2      ma_ccc
+  2   3   4  2      ma_ccc
+  3   4   5  2      maa_PEG
+  4   5   6  2      maa_PEG 
+  5   6   7  2      maa_PEG
+  6   7   8  2      maa_PEG  
+
+[dihedrals]
+;i j k m func R&B constants
+  4   5   6   7  11	mdd_PEG
+  5   6   7   8  11	mdd_PEG
+
+
+; C12E6
+
+[moleculetype]
+;name     exclusions
+C12E6  1
+
+[atoms]
+           1    C1           1   PEG   C1           1   0.0000000    
+           2    C1           1   PEG   C1           2   0.0000000    
+           3    C1           1   PEG   C1           3   0.0000000    
+           4   SPP           1   PEG  SPP           4   0.0000000    
+           5   SPP           1   PEG  SPP           5   0.0000000   
+           6   SPP           1   PEG  SPP           6   0.0000000    
+           7   SPP           1   PEG  SPP           7   0.0000000  
+           8   SPP           1   PEG  SPP           8   0.0000000 
+           9   SPP           1   PEG  SPP           9   0.0000000    
+          10   SPh           1   PEG  SPh          10   0.0000000                                
+
+[bonds]
+;backbone bonds
+  1   2  1      mb_cc
+  2   3  1      mb_cc
+  3   4  1      mb_CPEG
+  4   5  1      mb_PEG
+  5   6  1      mb_PEG
+  6   7  1      mb_PEG 
+  7   8  1      mb_PEG
+  8   9  1      mb_PEG
+  9  10  1      mb_PEGh
+
+[angles]
+;i j k   funct   angle   force c.
+  1   2   3  2      ma_ccc
+  2   3   4  2      ma_ccc
+  3   4   5  2      maa_PEG
+  4   5   6  2      maa_PEG 
+  5   6   7  2      maa_PEG
+  6   7   8  2      maa_PEG
+  7   8   9  2      maa_PEG
+  8   9  10  2      maa_PEG 
+  
+
+[dihedrals]
+;i j k m func R&B constants
+  4   5   6   7  11	mdd_PEG
+  5   6   7   8  11	mdd_PEG
+  6   7   8   9  11	mdd_PEG
+  7   8   9  10  11	mdd_PEG
