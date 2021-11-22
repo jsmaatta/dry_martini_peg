@@ -4,7 +4,7 @@ DRY-MARTINI-PEG is an extension to the DRY-MARTINI force field for simulating
 Pegylated lipids, alkyl ethoxy surfactants and PEG and PEO polymers.
 It is an implicit water coarse-grained molecular dynamics (CG-MD) force field.
 
-If you want to use this model, please cite [My Doctoral Thesis](ISBN) for the implementation, and [Shape and Phase Transitions in a PEGylated Phospholipid System](https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829) for the model`s application. The base DRY-MARTINI citation is [here](https://pubs.acs.org/doi/abs/10.1021/ct500477k).
+If you want to use this model, please cite [My Doctoral Thesis](ISBN) for the implementation, and [Shape and Phase Transitions in a PEGylated Phospholipid System](https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829) for the model's application. The base DRY-MARTINI citation is [here](https://pubs.acs.org/doi/abs/10.1021/ct500477k).
 
 If you spot any bugs or improvements, please  [raise an issue](https://github.com/jsmaatta/dry_martini_peg/issues). You can also add any starting structures etc.
 
@@ -36,7 +36,7 @@ You have to include the following files for your topology:
 
 ## Step 3:
 
-We used both the standard DRY-MARTINI mdp file for simulations as well as the new
+One can use both the standard DRY-MARTINI mdp file for simulations as well as the new
 ```
 newrf_sd.mdp
 ```
@@ -83,7 +83,7 @@ You can combine the PEG/PEO chain with any DRY-MARTINI bead. The examples includ
 
 ## Which simulation software?
 
-Like most MARTINI simulations, the DRY-MARTINI PEG simulations performed with [GROMACS](www.gromacs.org),
+Like most MARTINI simulations, the DRY-MARTINI PEG simulations performed with [GROMACS](www.gromacs.org).
 
 # Papers with DRY-MARTINI PEG Force Field
 + [J. Maatta, Doctoral Thesis](ISBN)
