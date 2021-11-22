@@ -38,10 +38,10 @@ You have to include the following files for your topology:
 
 We used both the standard DRY-MARTINI mdp file for simulations as well as the new
 ```
-newrf.mdp
+newrf_sd.mdp
 ```
-The advantage of the newrf.mdp is that one can then use Gromacs GPU acceleration to make simulations much faster.
-The newrf.mdp allows stochastic integrator at 40fs also with GPUs. For more details of the modifications, look at the notes in the newrf.mdp.
+The advantage of the newrf_sd.mdp is that one can then use Gromacs GPU acceleration to make simulations much faster.
+The newrf_sd.mdp allows stochastic integrator at 40fs also with GPUs. For more details of the modifications, look at the notes in the newrf_sd.mdp.
 
 ## Step 4:
 We included couple different starting configurations
@@ -59,7 +59,7 @@ gmx mdrun -v -deffnm em
 
 and
 
-gmx grompp -f newrf.mdp -c em.gro -p topol.top -o md.tpr
+gmx grompp -f newrf_sd.mdp -c em.gro -p topol.top -o md.tpr
 gmx mdrun -v -deffnm md
 ```
 
