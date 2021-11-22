@@ -80,41 +80,41 @@
   9 10 11  2      ma_ccc
  10 11 12  2      ma_ccc
 
-;  2   1  13   2      maa_PEG
+;  2   1  13   2      ma_PEG
 
-  1  13  14   2      maa_PEG
- 13  14  15   2      maa_PEG 
- 14  15  16   2      maa_PEG 
- 15  16  17   2      maa_PEG 
- 16  17  18   2      maa_PEG 
- 17  18  19   2      maa_PEG 
- 18  19  20   2      maa_PEG 
- 19  20  21   2      maa_PEG 
- 20  21  22   2      maa_PEG 
- 21  22  23   2      maa_PEG 
- 22  23  24   2      maa_PEG 
- 23  24  25   2      maa_PEG 
- 24  25  26   2      maa_PEG 
- 25  26  27   2      maa_PEG 
- 26  27  28   2      maa_PEG 
- 27  28  29   2      maa_PEG 
- 28  29  30   2      maa_PEG 
+  1  13  14   2      ma_PEG
+ 13  14  15   2      ma_PEG 
+ 14  15  16   2      ma_PEG 
+ 15  16  17   2      ma_PEG 
+ 16  17  18   2      ma_PEG 
+ 17  18  19   2      ma_PEG 
+ 18  19  20   2      ma_PEG 
+ 19  20  21   2      ma_PEG 
+ 20  21  22   2      ma_PEG 
+ 21  22  23   2      ma_PEG 
+ 22  23  24   2      ma_PEG 
+ 23  24  25   2      ma_PEG 
+ 24  25  26   2      ma_PEG 
+ 25  26  27   2      ma_PEG 
+ 26  27  28   2      ma_PEG 
+ 27  28  29   2      ma_PEG 
+ 28  29  30   2      ma_PEG 
  
  
 [dihedrals]
 ;i j k m func R&B constants 
- 13  14  15  16  11	mdd_PEG
- 14  15  16  17  11	mdd_PEG
- 15  16  17  18  11	mdd_PEG
- 16  17  18  19  11	mdd_PEG
- 17  18  19  20  11	mdd_PEG
- 18  19  20  21  11	mdd_PEG
- 19  20  21  22  11	mdd_PEG
- 20  21  22  23  11	mdd_PEG
- 21  22  23  24  11	mdd_PEG
- 22  23  24  25  11	mdd_PEG
- 23  24  25  26  11	mdd_PEG
- 24  25  26  27  11	mdd_PEG
- 25  26  27  28  11	mdd_PEG
- 26  27  28  29  11	mdd_PEG
- 27  28  29  30  11	mdd_PEG
+ 13  14  15  16  11	md_PEG
+ 14  15  16  17  11	md_PEG
+ 15  16  17  18  11	md_PEG
+ 16  17  18  19  11	md_PEG
+ 17  18  19  20  11	md_PEG
+ 18  19  20  21  11	md_PEG
+ 19  20  21  22  11	md_PEG
+ 20  21  22  23  11	md_PEG
+ 21  22  23  24  11	md_PEG
+ 22  23  24  25  11	md_PEG
+ 23  24  25  26  11	md_PEG
+ 24  25  26  27  11	md_PEG
+ 25  26  27  28  11	md_PEG
+ 26  27  28  29  11	md_PEG
+ 27  28  29  30  11	md_PEG

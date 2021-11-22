@@ -15,30 +15,6 @@
 ; https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829
 ;
 
-;;; BONDED PARAMETERS
-
-#define  mb_CPEG  0.41     3000.0 ; PEG bond parameters 3500
-#define  mb_PEG   0.33     4500.0 ; PEG bond parameters 4500
-#define  mb_PEGh  0.33     4000.0 ; PEG bond parameters 4500
-
-; for combined dihedral potential
-; (use this one!)
-;(bond types are harmonic angle 2 maa_PEG, and combined bending-torsion potential 11 mdd_PEG)
-#define  maa_PEG  124     100 ; PEG angle parameters  ; #define  maa_PEG  121.00     100 ; PEG angle parameters b128
-#define  mdd_PEG    8    1.21    -1.85    0.36    0.7601778666  0.0;
-
-; for restricted angle potential
-;(use this only if you have an old version of gromacs that does not support the combined dihedral potential)
-;(bond types are harmonic 2 ma_PEG, restricted 10 mr_PEG and ryckaert bellemans 3 md_PEG)
-#define  ma_PEG   128.00      150 ; PEG angle parameters
-#define  mr_PEG   128.00      100 ; PEG restricted angle parameters   
-#define  md_PEG   -1.82157326       2.91548665     -0.07534        -2.42558002      0.601778666     0.7640199 ; PEG
-
-; the carbon tail parameters are standard DRY MARTINI parameters 
-#define  ma_ccc  180.000    35.0 ; saturated tail (STANDARD DRY MARTINI PARAMETER)
-#define  mb_cc     0.480  1250.0 ; tail (STANDARD DRY MARTINI PARAMETER)
-
-
 ;;; CiEj SURFACTANTS
 
 
@@ -68,8 +44,8 @@ C12E2  1
 ;i j k   funct   angle   force c.
   1   2   3  2      ma_ccc
   2   3   4  2      ma_ccc
-  3   4   5  2      maa_PEG 
-  4   5   6  2      maa_PEG 
+  3   4   5  2      ma_PEG 
+  4   5   6  2      ma_PEG 
  
 ; C12E6
 
@@ -102,15 +78,15 @@ C12E4  1
 ;i j k   funct   angle   force c.
   1   2   3  2      ma_ccc
   2   3   4  2      ma_ccc
-  3   4   5  2      maa_PEG
-  4   5   6  2      maa_PEG 
-  5   6   7  2      maa_PEG
-  6   7   8  2      maa_PEG  
+  3   4   5  2      ma_PEG
+  4   5   6  2      ma_PEG 
+  5   6   7  2      ma_PEG
+  6   7   8  2      ma_PEG  
 
 [dihedrals]
 ;i j k m func R&B constants
-  4   5   6   7  11	mdd_PEG
-  5   6   7   8  11	mdd_PEG
+  4   5   6   7  11	md_PEG
+  5   6   7   8  11	md_PEG
 
 
 ; C12E6
@@ -147,17 +123,17 @@ C12E6  1
 ;i j k   funct   angle   force c.
   1   2   3  2      ma_ccc
   2   3   4  2      ma_ccc
-  3   4   5  2      maa_PEG
-  4   5   6  2      maa_PEG 
-  5   6   7  2      maa_PEG
-  6   7   8  2      maa_PEG
-  7   8   9  2      maa_PEG
-  8   9  10  2      maa_PEG 
+  3   4   5  2      ma_PEG
+  4   5   6  2      ma_PEG 
+  5   6   7  2      ma_PEG
+  6   7   8  2      ma_PEG
+  7   8   9  2      ma_PEG
+  8   9  10  2      ma_PEG 
   
 
 [dihedrals]
 ;i j k m func R&B constants
-  4   5   6   7  11	mdd_PEG
-  5   6   7   8  11	mdd_PEG
-  6   7   8   9  11	mdd_PEG
-  7   8   9  10  11	mdd_PEG
+  4   5   6   7  11	md_PEG
+  5   6   7   8  11	md_PEG
+  6   7   8   9  11	md_PEG
+  7   8   9  10  11	md_PEG

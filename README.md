@@ -24,8 +24,9 @@ git clone https://github.com/jsmaatta/dry_martini_peg
 You have to include the following files for your topology:
 
 ```
-#include "dry_martini_v2.1_peg.itp"   ; this includes the new PEG bead interactions
-#include "dry_martini_v2.1_PEGsurfactants.itp"  ; this includes the new PEG bonded interactions and couple small surfactants
+#include "dry_martini_peg_v2.1.itp"   ; this includes the new PEG bead interactions
+#include "dry_martini_peg_v2.1_bonded.itp"  ; this includes the new PEG bonded interactions
+#include "dry_martini_peg_v2.1_surfactants.itp"  ; this includes couple small PEG-surfactants
 #include "dry_martini_v2.1_lipids.itp" ; standard DRY-MARTINI lipids 
 #include "dry_martini_v2.1_ions.itp" ; standard DRY-MARTINI ions
 #include "dry_martini_v2.1_solvents.itp"  ; standard DRY-MARTINI solvents  
@@ -40,6 +41,7 @@ We used both the standard DRY-MARTINI mdp file for simulations as well as the ne
 newrf.mdp
 ```
 The advantage of the newrf.mdp is that one can then use Gromacs GPU acceleration to make simulations much faster.
+The newrf.mdp allows stochastic integrator at 40fs also with GPUs. For more details of the modifications, look at the notes in the newrf.mdp.
 
 ## Step 4:
 We included couple different starting configurations
@@ -71,12 +73,12 @@ We use the standard MARTINI procedure which means e.g. the bonds are defined wit
 
 The bond from PEG to a Carbon bead is defined with harmonic type `1 mb_CPEG`, the bond between PEG (or PEO) beads with `1 mb_PEG` and the bond to and end-capped Hydrogen with `1 mb_PEGh`.
 
-However, we use the [combined bending-torsion potential](https://pubs.acs.org/doi/10.1021/ct400219n) for the PEG dihedral interactions. You can look at the files `dry_martini_v2.1_PEGsurfactants.itp` for definitions and `dppe-peg45.itp` for usage. 
-That means that the dihedrals are defined with improved combined bending-torsion potential type `11 mdd_PEG` and angles for the dihedrals with standard harmonic `2 maa_PEG` types. So simply just use `mdd` for dihedrals and `maa` for angles for all PEG interactions. 
+However, we use the [combined bending-torsion potential](https://pubs.acs.org/doi/10.1021/ct400219n) for the PEG dihedral interactions. You can look at the files `dry_martini_peg_v2.1_bonded.itp` for definitions and `dppe-peg45.itp` for usage. 
+That means that the dihedrals are defined with improved combined bending-torsion potential type `11 md_PEG` and angles for the dihedrals with standard harmonic `2 ma_PEG` types. So simply just use `md` for dihedrals and `ma` for angles for all PEG interactions. 
 
-We recommend using the improved bending-torsion potential from above but if you are using a really old version of Gromacs or some other simulation package that does not support the improved angle potential, there is also restricted angle potential as an alternative. For that you should use, ryckaert bellemans type `3 md_PEG` for  the dihedrals, harmonic `2 ma_PEG` for angles and also add type `10 mr_PEG` restricted angle potential. The restricted angle potential parameters were parameterized to give almost identical results as the combined bending-torsion potential. 
+We recommend using the improved bending-torsion potential from above but if you are using a really old version of Gromacs or some other simulation package that does not support the improved angle potential, there is also restricted angle potential as an alternative. For that you should use, ryckaert bellemans type `3 mdd_PEG` for  the dihedrals, harmonic `2 maa_PEG` for angles and also add type `10 mrr_PEG` restricted angle potential. The restricted angle potential parameters were parameterized to give almost identical results as the combined bending-torsion potential. 
 
-You can combine the PEG/PEO chain with any DRY-MARTINI bead. The examples include `dppe-peg45.itp` where a 45 monomer PEG chain was attached to a DPPE lipid making a Pegylated DPPE and dry_martini_v2.1_PEGsurfactants.itp where 12 monomer PEO chain was attached to carbon chains of various length making C12E2, C12E4 and C12E6 alkyl ethoxy surfactants. Triblock Carbon-PEG-Carbon and other polymers are also possible to make very easily by just attaching the PEG chain to other groups. 
+You can combine the PEG/PEO chain with any DRY-MARTINI bead. The examples include `dppe-peg45.itp` where a 45 monomer PEG chain was attached to a DPPE lipid making a Pegylated DPPE and dry_martini_peg_v2.1_surfactants.itp where 12 monomer PEO chain was attached to carbon chains of various length making C12E2, C12E4 and C12E6 alkyl ethoxy surfactants. Triblock Carbon-PEG-Carbon and other polymers are also possible to make very easily by just attaching the PEG chain to other groups. 
 
 
 ## Which simulation software?
@@ -84,6 +86,7 @@ You can combine the PEG/PEO chain with any DRY-MARTINI bead. The examples includ
 Like most MARTINI simulations, the DRY-MARTINI PEG simulations performed with [GROMACS](www.gromacs.org),
 
 # Papers with DRY-MARTINI PEG Force Field
++ [J. Maatta, Doctoral Thesis](ISBN)
 + [Shape and Phase Transitions in a PEGylated Phospholipid System](https://pubs.acs.org/doi/10.1021/acs.langmuir.8b03829)
 
  
