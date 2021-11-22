@@ -46,8 +46,8 @@ The newrf_sd.mdp allows stochastic integrator at 40fs also with GPUs. For more d
 ## Step 4:
 We included couple different starting configurations
 ```
-plpeg.gro
-.gro
+dppe-peg45.gro
+dppc.gro
 ```
 But also all standard martini PEG configurations should work too. Just remove the MARTINI waters and you're good to go.
 
